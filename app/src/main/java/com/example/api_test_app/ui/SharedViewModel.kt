@@ -1,8 +1,10 @@
 package com.example.api_test_app.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.api_test_app.data.Repository
+import com.example.api_test_app.data.model.Book
 import kotlinx.coroutines.launch
 
 class SharedViewModel: ViewModel() {
@@ -12,7 +14,12 @@ class SharedViewModel: ViewModel() {
 
     fun loadBooks() {
         viewModelScope.launch {
-            repository.getBooks()
+
+            try {
+                repository.getBooks()
+            } catch (e: Exception) {
+                Log.e("SharedViewModel", "Error loading books", e)
+            }
         }
     }
 }

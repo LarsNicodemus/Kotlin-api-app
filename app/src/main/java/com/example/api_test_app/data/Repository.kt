@@ -12,6 +12,6 @@ class Repository {
 
     suspend fun getBooks() {
         val result = BookApi.retrofitService.getBooks()
-        _books.postValue(result.books)
+        _books.postValue(result.results)
     }
 }

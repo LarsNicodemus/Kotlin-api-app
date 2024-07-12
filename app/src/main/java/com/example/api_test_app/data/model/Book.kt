@@ -1,8 +1,10 @@
 package com.example.api_test_app.data.model
 
-data class Book (
-    val id : Int,
-    val title : String,
-    val authors : List<Author>,
-    val bookshelves: List<String>,
+import com.squareup.moshi.Json
+
+data class Book(
+    @Json(name = "title") val title: String,
+    @Json(name = "authors") val authors: List<Author>,
+    @Json(name = "formats") val formats: Formats
+
 )
