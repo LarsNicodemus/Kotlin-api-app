@@ -8,6 +8,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
+import retrofit2.http.Url
 
 const val BASE_URL = "https://gutendex.com/"
 
@@ -23,9 +25,11 @@ private val retrofit = Retrofit.Builder()
 interface ApiService {
     @GET("/books")
     suspend fun getBooks(): GutendexResponse
-
     @GET("/books/{id}")
-    suspend fun getBookById(@Path("id") bookId: String): Book
+    suspend fun getBook(@Path("id") id: Int): Book
+
+    @GET("books")
+    suspend fun searchBooks(@Query("search") query: String): GutendexResponse
 }
 
 object BookApi {

@@ -9,7 +9,11 @@
         android:id="@+id/categoriesFragment"
         android:name="com.example.api_test_app.ui.CategoriesFragment"
         android:label="fragment_categories"
-        tools:layout="@layout/fragment_categories" />
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_bookDetailFragment2"
+            app:destination="@id/bookDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/bookDetailFragment"
         android:name="com.example.api_test_app.ui.BookDetailFragment"

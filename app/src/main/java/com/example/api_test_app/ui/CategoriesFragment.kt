@@ -29,7 +29,7 @@ class CategoriesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.books.observe(viewLifecycleOwner){
             Log.d("Books", it.toString())
-            val adapter = BookAdapter(it)
+            val adapter = BookAdapter(it, viewModel)
             val recyclerView = binding.recyclerView
             recyclerView.adapter = adapter
         }
